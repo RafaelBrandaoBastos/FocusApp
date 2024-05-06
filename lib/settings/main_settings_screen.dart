@@ -3,7 +3,6 @@ import 'package:flux_focus_and_productivity/navbar-and-menus/bottom_navigation_b
 import 'package:flux_focus_and_productivity/settings/backup_screen.dart';
 import 'package:flux_focus_and_productivity/settings/contact_screen.dart';
 import 'package:flux_focus_and_productivity/settings/rate_us_screen.dart';
-import 'package:flux_focus_and_productivity/settings/theme_screen.dart';
 import 'package:flux_focus_and_productivity/theme/theme.dart';
 import 'package:flux_focus_and_productivity/settings/account_screen.dart';
 
@@ -19,7 +18,7 @@ class MainSettingsScreen extends StatelessWidget {
         title: const Center(child: Text('Settings')),
         backgroundColor: LightModeBackgroundColor,
       ),
-      body: Center( // Wrapping with Center widget to center vertically
+      body: Center(
         child: ListView(
           shrinkWrap: true,
           children: [
@@ -38,15 +37,6 @@ class MainSettingsScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const BackupScreen()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Center(child: Text('Appearance & Theme')),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ThemeScreen()),
                 );
               },
             ),
@@ -74,7 +64,6 @@ class MainSettingsScreen extends StatelessWidget {
       bottomNavigationBar: CustomBottomNavigationBar(
         selectedIndex: 3,
         onItemTapped: (index) {
-          // Handle bottom navigation taps if needed
         },
       ),
     );

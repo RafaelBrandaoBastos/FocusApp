@@ -24,29 +24,21 @@ class TimerScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const ClockView(),
-                  const SizedBox(height: 100), // Add some space between ClockView and buttons
+                  const SizedBox(height: 100),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _SquareButton(
                         onPressed: () {
-                          // Handle timer button pressed
                         },
                         label: 'Timer',
                       ),
-                      const SizedBox(width: 20), // Add some space between buttons
+                      const SizedBox(width: 20), 
                       _SquareButton(
                         onPressed: () {
-                          // Handle stopwatch button pressed
+
                         },
                         label: 'Stopwatch',
-                      ),
-                      const SizedBox(width: 20), // Add some space between buttons
-                      _SquareButton(
-                        onPressed: () {
-                          // Handle alarm button pressed
-                        },
-                        label: 'Alarm',
                       ),
                     ],
                   ),
@@ -57,9 +49,8 @@ class TimerScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: 2, // Adjust selectedIndex as needed for each screen
+        selectedIndex: 2,
         onItemTapped: (index) {
-          // Handle bottom navigation taps if needed
         },
       ),
     );
@@ -84,8 +75,8 @@ class _SquareButton extends StatelessWidget {
         onTap: onPressed,
         borderRadius: BorderRadius.circular(8.0),
         child: Container(
-          width: 100, // Adjust the width as needed
-          height: 40, // Adjust the height as needed
+          width: 100, 
+          height: 40, 
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),

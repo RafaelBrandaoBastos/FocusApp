@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flux_focus_and_productivity/theme/theme.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
+class AccountScreen extends StatefulWidget {
+  const AccountScreen({Key? key}) : super(key: key);
+
+  @override
+  _AccountScreenState createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
+  bool _isSignedIn = false;
+  String _userName = '';
+  String _userEmail = '';
+  String _userPhotoUrl = '';
 
   @override
   Widget build(BuildContext context) {
@@ -12,39 +23,67 @@ class AccountScreen extends StatelessWidget {
         title: const Text('Account'),
         backgroundColor: LightModeBackgroundColor,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image(
-                image: AssetImage('assets/logo.png'),
-                width: 100,
-              ),
-            ]
-          ),
-          const SizedBox(height: 25,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-            _SquareButton(
-              onPressed: () {
-                
-              },
-              label: 'New Account',
-            ),
-            const SizedBox(width: 20), // Add some space between buttons
-            _SquareButton(
-              onPressed: () {
-                
-              },
-              label: 'Existing Account',
-            ),
-          ])
-        ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: _isSignedIn
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (_userPhotoUrl.isNotEmpty)
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage: NetworkImage(_userPhotoUrl),
+                      ),
+                    const SizedBox(height: 16),
+                    Text(
+                      _userName,
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      _userEmail,
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                  ],
+                )
+              : Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image(
+                      image: AssetImage('assets/logo.png'),
+                      width: 100,
+                    ),
+                    const SizedBox(height: 25),
+                    _SquareButton(
+                      onPressed: () {
+                        _signInWithGoogle(context);
+                      },
+                      label: 'New Account',
+                    ),
+                  ],
+                ),
+        ),
       ),
     );
+  }
+
+  Future<void> _signInWithGoogle(BuildContext context) async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser != null) {
+        setState(() {
+          _isSignedIn = true;
+          _userName = googleUser.displayName ?? '';
+          _userEmail = googleUser.email ?? '';
+          _userPhotoUrl = googleUser.photoUrl ?? '';
+        });
+      } else {
+        // Sign in canceled by user
+      }
+    } catch (error) {
+      print('Error signing in with Google: $error');
+    }
   }
 }
 
@@ -66,8 +105,8 @@ class _SquareButton extends StatelessWidget {
         onTap: onPressed,
         borderRadius: BorderRadius.circular(8.0),
         child: Container(
-          width: 150, // Adjust the width as needed
-          height: 40, // Adjust the height as needed
+          width: 150, 
+          height: 40,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
