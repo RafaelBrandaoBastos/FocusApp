@@ -38,14 +38,8 @@ class _HeatMapCalendarState extends State<HeatMapCalendar> {
     final DateTime endDate = DateTime.now().add(const Duration(days: 365));
 
     for (DateTime date = startDate; date.isBefore(endDate); date = date.add(const Duration(days: 1))) {
-      // Retrieve app usage data for the current date
-      // For demonstration purposes, let's assume you have a method to get the time spent on the app for a specific date
       Duration timeSpent = getTimeSpent(date);
-
-      // Calculate intensity based on the time spent
       int intensity = calculateIntensity(timeSpent);
-
-      // Add the calculated intensity to the dataset
       _datasets[date] = intensity;
     }
 
@@ -55,9 +49,6 @@ class _HeatMapCalendarState extends State<HeatMapCalendar> {
   }
 
   Duration getTimeSpent(DateTime date) {
-    // Dummy method to simulate getting time spent on the app for a specific date
-    // Replace this with your actual implementation
-    // For demonstration purposes, let's assume we return a random duration
     return Duration(minutes: DateTime.now().millisecondsSinceEpoch % 180);
   }
 
