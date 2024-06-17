@@ -14,7 +14,7 @@ class ContactScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Padding(
-          padding: EdgeInsets.all(16.0), // Add margin
+          padding: EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -24,8 +24,8 @@ class ContactScreen extends StatelessWidget {
                 'want to contact us, you may do so through either our mail at '
                 'fluxappdev@gmail.com or through our profile on X (formerly Twitter) '
                 'at @fluxfp',
-                textAlign: TextAlign.justify, // Center align the text
-                style: TextStyle(fontSize: 16.0), // Adjust font size if necessary
+                textAlign: TextAlign.justify,
+                style: TextStyle(fontSize: 16.0),
               ),
             ],
           ),
