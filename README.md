@@ -1,16 +1,19 @@
-# flux_focus_and_productivity
+# Flux: Focus and Productivity
 
-A new Flutter project.
+## Overview
 
-## Getting Started
+As the name implies, Flux's main goal is to be a simple productivity app, helping its users keep track of their routines and goals in the long run, all while offering some functionalities for short-term activity tracking. These include a timer, a stopwatch, and a way of visualizing past activity (e.g. a heatmap calendar).
 
-This project is a starting point for a Flutter application.
+## Target Audience
 
-A few resources to get you started if this is your first Flutter project:
+The target audience is the user who finds himself having trouble with reaching their goals, mainly because of some sort of impairment in the capability to plan ahead and follow through with their ideas. A good example of people with such impairments are those who have ADHD. Of course, the general public may very well find uses for the app too, as there is no reason why they wouldn't be able to extract value from it.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Releases/Technologies Involved
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The app will be developed for _**Android only**_ as far as we (the developers) are concerned. That is because the project is mainly intended as an experiment and for academic purposes, that is, to get familiarized with the technologies listed below:
+
+- [Dart Programming Language](https://dart.dev/)
+- [Flutter Framework](https://flutter.dev/)
+- [Android Studio](https://developer.android.com/)
+- [Firebase](https://firebase.google.com/)
+- [SQLite](https://sqlite.org/)
