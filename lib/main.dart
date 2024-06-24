@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home/home_screen.dart';
 
-void main() {
+
+void main() async {
   runApp(const MyApp());
 }
 
